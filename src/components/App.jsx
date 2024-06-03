@@ -1,16 +1,28 @@
+import {Route,Routes,BrowserRouter as Router} from 'react-router-dom';
+
+import Home from '../pages/home/Home.jsx'
+import Catalog from '../pages/Catalog/Catalog.jsx';
+import Favorites from '../pages/Favorites/Favorites.jsx';
+import { getCars } from 'API/fetchApi.js';
+
+
+
 export const App = () => {
+  const cars=getCars();
+  console.log('cars', cars)
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+    <Router>
+    <Routes>
+     
+      <Route path='/' element={<Home/>}  />
+   
+      <Route path='/catalog' element={<Catalog/>}  /> 
+      <Route path='*' element={<Home/>} />
+      <Route path='/favorites' element ={<Favorites/>}/>
+    </Routes>
+    </Router>
+    </>
   );
 };
+
