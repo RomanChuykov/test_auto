@@ -1,5 +1,5 @@
 
-import { a} from './CarList.styled';
+import {Foto,NameCar,NameCarLi,Descr,DescrLi} from './CarList.styled';
 function CarList(car){
     function sityAndCountry() {
         const adres=car.address;
@@ -14,19 +14,22 @@ function CarList(car){
     const address=sityAndCountry();
     return(
         <>
-            <img src={car.img} alt="car" />
-            <ul>
-                <li>{car.make}</li>
-                <li>{car.model}</li>
-                <li>{car.year}</li>
-            </ul>
-            <span>{car.rentalPrise}</span>
-            <ul>
-                <li>{address.sity}</li>
-                <li>{address.country}</li>
-                <li>{car.rentalCompany}</li>
+            <Foto src={car.img} alt={car.make} />
+            <NameCar>
+                <NameCarLi>{car.make}</NameCarLi>
+                <NameCarLi>{car.model},</NameCarLi>
+                <NameCarLi>{car.year}</NameCarLi>
+            </NameCar>
+            <span>{car.rentalPriсe}</span>
+            <Descr>
+                <DescrLi>{address.sity}</DescrLi>
+                <DescrLi>{address.country}</DescrLi>
+                <DescrLi>{car.rentalCompany}</DescrLi>
+                <DescrLi>{car.type}</DescrLi>
+                <DescrLi>{car.functionalities[0]}</DescrLi>
+                <DescrLi>{car.id}</DescrLi>
 
-            </ul>
+            </Descr>
 
         </>
     )
